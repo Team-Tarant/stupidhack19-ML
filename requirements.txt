@@ -1,0 +1,7 @@
+regex
+urllib3==1.24
+flask
+numpy
+flask_cors
+torch
+pytorch_pretrained_bert

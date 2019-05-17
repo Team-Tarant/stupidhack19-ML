@@ -1,7 +1,9 @@
 from flask import Flask, jsonify, request
 
 import torch
-from pytorch_pretrained_bert import GPT2Tokenizer, GPT2Model, GPT2LMHeadModel
+from pytorch_pretrained_bert import GPT2Tokenizer
+from pytorch_pretrained_bert import GPT2LMHeadModel
+
 import numpy as np
 
 import os
@@ -65,6 +67,7 @@ def get_story():
 if __name__ == '__main__':
   global tokenizer
   global model
+  #TODO make sure to use 345M model
   tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
   model = GPT2LMHeadModel.from_pretrained('gpt2')
 

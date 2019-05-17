@@ -3,5 +3,13 @@ urllib3==1.24
 flask
 numpy
 flask_cors
-torch
-pytorch_pretrained_bert
+# PyTorch
+torch>=0.4.1
+# progress bars in model download and training scripts
+tqdm
+# Accessing files from S3 directly.
+boto3
+# Used for downloading models over HTTP
+requests
+# For OpenAI GPT
+regex

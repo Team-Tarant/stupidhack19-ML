@@ -119,7 +119,7 @@ if __name__ == '__main__':
   parser.add_argument("--batch_size", type=int, default=-1)
   parser.add_argument("--length", type=int, default=-1)
   parser.add_argument("--temperature", type=float, default=1.0)
-  parser.add_argument("--top_k", type=int, default=40)
+  parser.add_argument("--top_k", type=int, default=5)
   parser.add_argument('--unconditional', action='store_true', help='If true, unconditional generation.')
   args = parser.parse_args()
   print(args)

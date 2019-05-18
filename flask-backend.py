@@ -4,7 +4,7 @@ import torch
 from pytorch_pretrained_bert import GPT2Tokenizer
 from pytorch_pretrained_bert import GPT2LMHeadModel
 import numpy as np
-
+from random import randrange 
 import os
 from flask_cors import CORS, cross_origin
 from io import BytesIO
@@ -71,7 +71,7 @@ def sample_sequence(model, length, start_token=None, batch_size=None, context=No
     output = context
     past = None
     with torch.no_grad():
-        for i in trange(length):
+        for i in range(length):
             logits, past = model(prev, past=past)
             logits = logits[:, -1, :] / temperature
             logits = top_k_logits(logits, k=top_k)
@@ -117,7 +117,7 @@ if __name__ == '__main__':
   parser.add_argument("--seed", type=int, default=0)
   parser.add_argument("--nsamples", type=int, default=1)
   parser.add_argument("--batch_size", type=int, default=-1)
-  parser.add_argument("--length", type=int, default=-1)
+  parser.add_argument("--length", type=int, default=randrange(50, 150, 1))
   parser.add_argument("--temperature", type=float, default=1.0)
   parser.add_argument("--top_k", type=int, default=5)
   parser.add_argument('--unconditional', action='store_true', help='If true, unconditional generation.')
@@ -141,4 +141,4 @@ if __name__ == '__main__':
   elif args.length > model.config.n_ctx:
       raise ValueError("Can't get samples longer than window size: %s" % model.config.n_ctx)
 
-  app.run("0.0.0.0", port=5000, debug=True)
+  app.run("0.0.0.0", port=5000)

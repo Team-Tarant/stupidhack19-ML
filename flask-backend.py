@@ -141,4 +141,4 @@ if __name__ == '__main__':
   elif args.length > model.config.n_ctx:
       raise ValueError("Can't get samples longer than window size: %s" % model.config.n_ctx)
 
-  app.run("0.0.0.0", port=5000)
+  app.run("0.0.0.0", port=int(os.environ.get("PORT", 5000)))

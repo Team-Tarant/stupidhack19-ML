@@ -41,7 +41,7 @@ logger = logging.getLogger(__name__)
 
 PRETRAINED_MODEL_ARCHIVE_MAP = {"gpt2": "https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-pytorch_model.bin"}
 PRETRAINED_CONFIG_ARCHIVE_MAP = {"gpt2": "https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-config.json"}
-
+print('aiiids')
 def load_tf_weights_in_gpt2(model, gpt2_checkpoint_path):
     """ Load tf checkpoints in a pytorch model
     """
